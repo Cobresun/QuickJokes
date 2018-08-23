@@ -15,6 +15,9 @@ public class CardViewImpl implements CardView {
     public CardViewImpl(Activity activity){
         mActivity = activity;
         cardPresenter = new CardPresenterImpl(this);
+
+
+        cardPresenter.loadCard();
     }
 
     /**
