@@ -26,8 +26,8 @@ public class CardViewImpl implements CardView {
     @Override
     public void displayCard(CardFragment cardFragment){
         TextView textView = mActivity.findViewById(R.id.textView);
-
-        textView.setText(cardFragment.toString());
+        System.out.println("SUNY: "+cardFragment.getInfo()[0]);
+        textView.setText(cardFragment.getInfo()[0]);
     }
 
     /**

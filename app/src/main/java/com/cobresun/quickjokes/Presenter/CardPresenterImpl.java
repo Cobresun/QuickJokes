@@ -26,6 +26,7 @@ public class CardPresenterImpl implements CardPresenter {
             String cardAuthor = cardData[2];
             CardFragment cardFragment = CardFragment.newInstance(cardTitle, cardContent, cardAuthor);
             mCardQueue.add(cardFragment);
+            System.out.println("SUNY: PO "+cardFragment.getInfo()[0]+" supposed to be "+cardTitle);
         }
     }
 

@@ -124,9 +124,9 @@ public class CardFragment extends Fragment {
 
     public String[] getInfo() {
         String[] stringArray = new String[3];
-        stringArray[0] = mTitle;
-        stringArray[1] = mContent;
-        stringArray[2] = mAuthor;
+        stringArray[0] = getArguments().getString(TITLE);
+        stringArray[1] = getArguments().getString(CONTENT);
+        stringArray[2] = getArguments().getString(AUTHOR);
         return stringArray;
     }
 }
