@@ -1,17 +1,30 @@
 package com.cobresun.quickjokes.View;
 
+import android.widget.TextView;
+
 public class CardViewImpl implements CardView {
 
-    /**
-     *  Takes a card and then displays the 
-     */
-    public void displayCard(){
 
+    private TextView textView;
+
+
+    public CardViewImpl(TextView textView){
+        this.textView = textView;
+
+    }
+
+    /**
+     *  Takes a card and then displays the
+     */
+    @Override
+    public void displayCard(){
+        textView.setText("Brian likes cheese just like me!!!!");
     }
 
     /**
      *
      */
+    @Override
     public void displayGuide(){
 
     }
@@ -19,6 +32,7 @@ public class CardViewImpl implements CardView {
     /**
      *  Reacts to the card being tapped.
      */
+    @Override
     public void onTapCard(){
 
     }
@@ -26,6 +40,7 @@ public class CardViewImpl implements CardView {
     /**
      * Reacts to a card being dismissed.
      */
+    @Override
     public void dismissCard(){
 
     }
