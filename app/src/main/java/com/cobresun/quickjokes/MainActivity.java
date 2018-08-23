@@ -17,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initVieweer();
+        initViewer();
     }
 
-    private void initVieweer(){
-        RedditAPIFetcher redditAPIFetcher = new RedditAPIFetcher();
-        CardViewImpl cardViewImpl = new CardViewImpl(this, redditAPIFetcher);
+    private void initViewer(){
+        // Creates an instance of cardView with the current context of the MainActivity
+        CardViewImpl cardViewImpl = new CardViewImpl(this);
     }
 }

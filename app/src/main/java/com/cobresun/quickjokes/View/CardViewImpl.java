@@ -3,7 +3,6 @@ package com.cobresun.quickjokes.View;
 import android.app.Activity;
 import android.widget.TextView;
 
-import com.cobresun.quickjokes.Model.Impl.RedditAPIFetcher;
 import com.cobresun.quickjokes.Presenter.CardFragment;
 import com.cobresun.quickjokes.Presenter.CardPresenterImpl;
 import com.cobresun.quickjokes.R;
@@ -13,9 +12,9 @@ public class CardViewImpl implements CardView {
     private Activity mActivity;
     private final CardPresenterImpl cardPresenter;
 
-    public CardViewImpl(Activity activity, RedditAPIFetcher redditAPIFetcher){
+    public CardViewImpl(Activity activity){
         mActivity = activity;
-        cardPresenter = new CardPresenterImpl(redditAPIFetcher, this);
+        cardPresenter = new CardPresenterImpl(this);
     }
 
     /**
