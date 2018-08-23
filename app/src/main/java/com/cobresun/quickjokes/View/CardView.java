@@ -1,5 +1,7 @@
 package com.cobresun.quickjokes.View;
 
+import com.cobresun.quickjokes.Presenter.CardFragment;
+
 /**
  * Interface for the display of cards.
  *
@@ -9,7 +11,7 @@ public interface CardView {
     /**
      *  Presents a card to the user.
      */
-    public void displayCard();
+    public void displayCard(CardFragment cardFragment);
 
     /**
      *

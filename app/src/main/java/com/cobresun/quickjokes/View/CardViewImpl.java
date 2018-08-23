@@ -2,6 +2,8 @@ package com.cobresun.quickjokes.View;
 
 import android.widget.TextView;
 
+import com.cobresun.quickjokes.Presenter.CardFragment;
+
 public class CardViewImpl implements CardView {
 
 
@@ -17,8 +19,9 @@ public class CardViewImpl implements CardView {
      *  Takes a card and then displays the
      */
     @Override
-    public void displayCard(){
-        textView.setText("Brian likes cheese just like me!!!!");
+    public void displayCard(CardFragment cardFragment){
+
+        textView.setText(cardFragment.toString());
     }
 
     /**
