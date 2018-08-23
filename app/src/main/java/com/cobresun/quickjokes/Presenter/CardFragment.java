@@ -111,4 +111,12 @@ public class CardFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    public String[] getInfo() {
+        String[] stringArray = new String[3];
+        stringArray[0] = mTitle;
+        stringArray[1] = mContent;
+        stringArray[2] = mAuthor;
+        return stringArray;
+    }
 }

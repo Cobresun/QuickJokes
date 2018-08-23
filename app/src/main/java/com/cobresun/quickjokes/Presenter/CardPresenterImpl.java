@@ -21,7 +21,10 @@ public class CardPresenterImpl implements CardPresenter {
     private void loadInitialCards() {
         String[][] initCardsData = mRedditAPIFetcher.getCardData(3);
         for (String[] cardData : initCardsData) {
-            CardFragment cardFragment = CardFragment.newInstance(cardData[0], cardData[1], cardData[2]);
+            String cardTitle = cardData[0];
+            String cardContent = cardData[1];
+            String cardAuthor = cardData[2];
+            CardFragment cardFragment = CardFragment.newInstance(cardTitle, cardContent, cardAuthor);
             mCardQueue.add(cardFragment);
         }
     }
