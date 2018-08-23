@@ -27,7 +27,6 @@ public class CardViewImpl implements CardView {
     public void displayCard(CardFragment cardFragment){
         TextView textView = mActivity.findViewById(R.id.textView);
 
-        cardPresenter.loadCard();
         textView.setText(cardFragment.toString());
     }
 
