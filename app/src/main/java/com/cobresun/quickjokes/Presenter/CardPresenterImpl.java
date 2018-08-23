@@ -9,10 +9,10 @@ public class CardPresenterImpl implements CardPresenter {
     private RedditAPIFetcher mRedditAPIFetcher;
     private CardViewImpl mCardViewImpl;
 
-    public CardPresenterImpl(RedditAPIFetcher redditAPIFetcher, CardViewImpl cardViewImpl) {
-        mCardQueue = new LimitedQueue<>(3);
-        mRedditAPIFetcher = redditAPIFetcher;
+    public CardPresenterImpl(CardViewImpl cardViewImpl) {
         mCardViewImpl = cardViewImpl;
+        mCardQueue = new LimitedQueue<>(3);
+        mRedditAPIFetcher = new RedditAPIFetcher();
     }
 
     /**
@@ -32,7 +32,6 @@ public class CardPresenterImpl implements CardPresenter {
      */
     @Override
     public void loadCard() {
-
         // Displays next card in queue
         mCardViewImpl.displayCard(mCardQueue.poll());
 
