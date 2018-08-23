@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.cobresun.quickjokes.R;
 
@@ -63,6 +64,15 @@ public class CardFragment extends Fragment {
             mTitle = getArguments().getString(TITLE);
             mContent = getArguments().getString(CONTENT);
             mAuthor = getArguments().getString(AUTHOR);
+
+            TextView titleView = getView().findViewById(R.id.title);
+            titleView.setText(mTitle);
+
+            TextView contentView = getView().findViewById(R.id.content);
+            contentView.setText(mTitle);
+
+            TextView authorView = getView().findViewById(R.id.author);
+            authorView.setText(mTitle);
         }
     }
 
