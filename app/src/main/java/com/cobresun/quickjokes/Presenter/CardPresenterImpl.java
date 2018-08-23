@@ -18,8 +18,7 @@ public class CardPresenterImpl implements CardPresenter {
     /**
      *  Loads 3 cards from the model and makes 3 cards (adds them to a queue)
      */
-    @Override
-    public void loadInitialCards() {
+    private void loadInitialCards() {
         String[][] initCardsData = mRedditAPIFetcher.getCardData(3);
         for (String[] cardData : initCardsData) {
             CardFragment cardFragment = CardFragment.newInstance(cardData[0], cardData[1], cardData[2]);
@@ -32,6 +31,10 @@ public class CardPresenterImpl implements CardPresenter {
      */
     @Override
     public void loadCard() {
+        if (mCardQueue.isEmpty()) {
+            loadInitialCards();
+        }
+
         // Displays next card in queue
         mCardViewImpl.displayCard(mCardQueue.poll());
 
