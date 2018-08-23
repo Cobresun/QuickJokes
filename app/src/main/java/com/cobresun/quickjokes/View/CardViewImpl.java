@@ -1,18 +1,21 @@
 package com.cobresun.quickjokes.View;
 
+import android.app.Activity;
 import android.widget.TextView;
 
+import com.cobresun.quickjokes.Model.Impl.RedditAPIFetcher;
 import com.cobresun.quickjokes.Presenter.CardFragment;
+import com.cobresun.quickjokes.Presenter.CardPresenterImpl;
+import com.cobresun.quickjokes.R;
 
 public class CardViewImpl implements CardView {
 
+    private Activity mActivity;
+    private final CardPresenterImpl cardPresenter;
 
-    private TextView textView;
-
-
-    public CardViewImpl(TextView textView){
-        this.textView = textView;
-
+    public CardViewImpl(Activity activity, RedditAPIFetcher redditAPIFetcher){
+        mActivity = activity;
+        cardPresenter = new CardPresenterImpl(redditAPIFetcher, this);
     }
 
     /**
@@ -20,7 +23,7 @@ public class CardViewImpl implements CardView {
      */
     @Override
     public void displayCard(CardFragment cardFragment){
-
+        TextView textView = mActivity.findViewById(R.id.textView);
         textView.setText(cardFragment.toString());
     }
 

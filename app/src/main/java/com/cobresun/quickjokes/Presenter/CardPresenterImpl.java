@@ -9,8 +9,8 @@ public class CardPresenterImpl implements CardPresenter {
     private RedditAPIFetcher mRedditAPIFetcher;
     private CardViewImpl mCardViewImpl;
 
-    public CardPresenterImpl(LimitedQueue<CardFragment> cardQueue, RedditAPIFetcher redditAPIFetcher, CardViewImpl cardViewImpl) {
-        mCardQueue = cardQueue;
+    public CardPresenterImpl(RedditAPIFetcher redditAPIFetcher, CardViewImpl cardViewImpl) {
+        mCardQueue = new LimitedQueue<>(3);
         mRedditAPIFetcher = redditAPIFetcher;
         mCardViewImpl = cardViewImpl;
     }
