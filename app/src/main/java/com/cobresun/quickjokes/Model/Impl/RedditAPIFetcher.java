@@ -8,7 +8,7 @@ public class RedditAPIFetcher implements APIFetcher{
     private static String SUBREDDIT = "r/jokes";
 
     private static String getJSON(String targetUrl){
-
+        return null;
     }
 
     @Override
