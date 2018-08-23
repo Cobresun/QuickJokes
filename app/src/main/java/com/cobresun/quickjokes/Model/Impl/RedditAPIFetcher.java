@@ -17,15 +17,26 @@ public class RedditAPIFetcher implements APIFetcher {
 
     private String lastFetched = "";
 
-    private JSONResponceFetcher fetcher;
+    private JSONResponseFetcher fetcher;
 
     public RedditAPIFetcher(){
-        fetcher = new JSONResponceFetcher();
+        fetcher = new JSONResponseFetcher();
     }
 
-    private static String getJSON(String targetUrl){
-        // i'm very confused about what to do with this
-        return null;
+    private String getJSON(String targetUrl, int numCards){
+        JSONResponseFetcher fetcher = new JSONResponseFetcher();
+        try {
+            if (numCards > 1) {
+                fetcher.execute(targetUrl).get();
+            } else {
+                fetcher.execute(targetUrl).get();
+            }
+            return fetcher.getJSONResponse();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return "Error";
+        }
     }
 
     @Override
@@ -38,21 +49,11 @@ public class RedditAPIFetcher implements APIFetcher {
         String targetUrl = BASE_URL + SUBREDDIT + POST_SOURCE + suffix;
 
         System.out.println("SUNY: getting card data from: "+targetUrl);
-        fetcher = new JSONResponceFetcher();
-        try {
-            if (numCards > 1) {
-                fetcher.execute(targetUrl).get();
-            } else {
-                fetcher.execute(targetUrl).get();
-            }
-        }catch (Exception e){
-            fetcher.getStatus();
-            e.printStackTrace();
-            //fetcher.execute();
-        }
+
+        String JSONResponse  = getJSON(targetUrl, numCards);
 
         try {
-            JSONObject data = new JSONObject(fetcher.getJSONResponce());
+            JSONObject data = new JSONObject(JSONResponse);
             data = data.getJSONObject("data");
             JSONArray posts = data.getJSONArray("children");
 

@@ -9,12 +9,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class JSONResponceFetcher extends AsyncTask<String, Void, Void> {
+public class JSONResponseFetcher extends AsyncTask<String, Void, Void> {
 
-    private String JSONResponce;
+    private String JSONResponse;
 
-    public String getJSONResponce() {
-        return JSONResponce;
+    public String getJSONResponse() {
+        return JSONResponse;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class JSONResponceFetcher extends AsyncTask<String, Void, Void> {
                 sb.append(line + "\n");
             }
             br.close();
-            JSONResponce = sb.toString();
+            JSONResponse = sb.toString();
 
         } catch (MalformedURLException ex) {
             ex.printStackTrace();
