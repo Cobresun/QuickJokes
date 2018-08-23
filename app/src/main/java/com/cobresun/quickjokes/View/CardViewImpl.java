@@ -23,6 +23,8 @@ public class CardViewImpl implements CardView {
     @Override
     public void displayCard(CardFragment cardFragment){
         TextView textView = mActivity.findViewById(R.id.textView);
+
+        cardPresenter.loadCard();
         textView.setText(cardFragment.toString());
     }
 
