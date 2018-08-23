@@ -20,7 +20,7 @@ public class RedditAPIFetcher implements APIFetcher{
     private static String SUBREDDIT = "r/jokes/";
     private static String POST_SOURCE = "top/";
 
-    private static String[] valuesToFetch = {"title", "selftext"};
+    private static String[] valuesToFetch = {"title", "selftext", "author"};
 
     private String lastFetched = "";
 
@@ -79,8 +79,10 @@ public class RedditAPIFetcher implements APIFetcher{
             for(int i=0; i<posts.length(); i++){
                 JSONObject jsonPost = posts.getJSONObject(i).getJSONObject("data");
 
-                for(int x=0; x<valuesToFetch.length; x++)
+                for(int x=0; x<valuesToFetch.length; x++) {
                     parsedCardData[i][x] = jsonPost.optString(valuesToFetch[x]);
+                    System.out.println("SUNY: card["+i+"] "+valuesToFetch[x]+": "+parsedCardData[i][x]);
+                }
             }
 
             return parsedCardData;
